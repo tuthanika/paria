@@ -3,9 +3,12 @@
 from __future__ import annotations
 
 import sys
+from typing import TYPE_CHECKING
 
-from aria2p.api import API
 from aria2p.utils import read_lines
+
+if TYPE_CHECKING:
+    from aria2p.api import API
 
 
 def add_torrents(
@@ -15,10 +18,9 @@ def add_torrents(
     options: dict | None = None,
     position: int | None = None,
 ) -> int:
-    """
-    Add torrent subcommand.
+    """Add torrent subcommand.
 
-    Arguments:
+    Parameters:
         api: The API instance to use.
         torrent_files: The paths to the torrent files.
         from_file: Path to the file to read torrent files paths from.
